@@ -6,6 +6,9 @@ import (
 	"github.com/gorilla/mux"
 )
 
+/*
+Route model
+*/
 type Route struct {
 	Method      string
 	Pattern     string
@@ -13,8 +16,14 @@ type Route struct {
 	HandlerFunc http.HandlerFunc
 }
 
+/*
+Routes is an array of Route Models
+*/
 type Routes []Route
 
+/*
+NewRouter is the main router function
+*/
 func NewRouter() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
 
@@ -35,6 +44,7 @@ func NewRouter() *mux.Router {
 	return router
 }
 
+// Construct the routes
 var routes = Routes{
 	Route{
 		"Get",

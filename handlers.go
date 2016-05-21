@@ -8,10 +8,16 @@ import (
 	"github.com/gorilla/mux"
 )
 
+/*
+Index main router
+*/
 func Index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Everything is GO")
 }
 
+/*
+TodoIndex shows all todos
+*/
 func TodoIndex(w http.ResponseWriter, r *http.Request) {
 	todos := Todos{
 		Todo{Index: 1, Title: "learn Go!", Completed: false},
@@ -23,11 +29,13 @@ func TodoIndex(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	//fmt.Fprintln(w, "Show all todos", jsonString)
 }
 
+/*
+TodoShow serves a single todo
+*/
 func TodoShow(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	todoId := vars["todoId"]
-	fmt.Fprintln(w, "Show", todoId)
+	todoID := vars["todoId"]
+	fmt.Fprintln(w, "Show", todoID)
 }

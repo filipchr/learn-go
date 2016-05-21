@@ -6,6 +6,9 @@ import (
 	"time"
 )
 
+/*
+Logger is helper function for the router
+*/
 func Logger(inner http.Handler, name string) http.Handler {
 	return http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 		start := time.Now()
